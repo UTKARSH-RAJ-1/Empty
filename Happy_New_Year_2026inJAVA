@@ -1,0 +1,20 @@
+public class NewYearCelebration {
+    public static void main(String[] args) {
+        String message = "HAPPY NEW YEAR 2026! 🎆";
+        
+        try {
+            System.out.println("Starting the countdown...");
+            for (int i = 3; i > 0; i--) {
+                System.out.println(i + "...");
+                Thread.sleep(1000); // Wait for 1 second
+            }
+            
+            System.out.println("\n" + "=".repeat(message.length()));
+            System.out.println(message);
+            System.out.println("=".repeat(message.length()));
+            
+        } catch (InterruptedException e) {
+            System.err.println("Countdown interrupted!");
+        }
+    }
+}
