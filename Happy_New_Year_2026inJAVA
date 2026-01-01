@@ -1,20 +1,37 @@
-public class NewYearCelebration {
-    public static void main(String[] args) {
-        String message = "HAPPY NEW YEAR 2026! 🎆";
+public class NewYear2026 {
+    // ANSI Color Codes
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_RED = "\u001B[31m";
+
+    public static void main(String[] args) throws InterruptedException {
+        String message = " ✨ HAPPY NEW YEAR 2026! ✨ ";
         
-        try {
-            System.out.println("Starting the countdown...");
-            for (int i = 3; i > 0; i--) {
-                System.out.println(i + "...");
-                Thread.sleep(1000); // Wait for 1 second
-            }
-            
-            System.out.println("\n" + "=".repeat(message.length()));
-            System.out.println(message);
-            System.out.println("=".repeat(message.length()));
-            
-        } catch (InterruptedException e) {
-            System.err.println("Countdown interrupted!");
+        // 1. Countdown with color
+        for (int i = 3; i > 0; i--) {
+            System.out.println(ANSI_RED + "  [" + i + "]" + ANSI_RESET);
+            Thread.sleep(800);
         }
+
+        // 2. Simple "Firework" Animation
+        String[] frames = {
+            "      * ",
+            "    * . * ",
+            "  * ...  * ",
+            " * . : .  * ",
+            "  * ...  * ",
+            "    * . * "
+        };
+
+        for (String frame : frames) {
+            System.out.print("\r" + ANSI_YELLOW + frame + ANSI_RESET);
+            Thread.sleep(150);
+        }
+
+        // 3. Final Formatted Output
+        System.out.println("\n\n" + ANSI_CYAN + "★".repeat(30));
+        System.out.println("  " + message);
+        System.out.println("★".repeat(30) + ANSI_RESET + "\n");
     }
 }
